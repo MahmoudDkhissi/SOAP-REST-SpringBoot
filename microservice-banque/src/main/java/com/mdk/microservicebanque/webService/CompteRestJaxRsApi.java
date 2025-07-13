@@ -40,6 +40,14 @@ public class CompteRestJaxRsApi {
         return compteRepository.save(compte);
     }
 
+    @PUT
+    @Path("/comptes/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Compte UPDATE(Compte nouveauCompte, @PathParam("id") Long id) {
+        nouveauCompte.setId(id);
+        return compteRepository.save(nouveauCompte);
+    }
+
     @DELETE
     @Path("/comptes/{id}")
     @Produces(MediaType.APPLICATION_JSON)
