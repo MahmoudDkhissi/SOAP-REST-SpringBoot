@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-@Path("/banque")
+@Path("/jaxRs/banque")
 public class CompteRestJaxRsApi {
 
     CompteRepository compteRepository;
