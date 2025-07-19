@@ -2,7 +2,11 @@ package com.mdk.microservicebanque;
 
 import com.mdk.microservicebanque.webService.CompteRestJaxRsApi;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter;
+
+
 
 @Configuration
 public class BanqueMsConfig {
@@ -15,4 +19,12 @@ public class BanqueMsConfig {
         return jerseyServlet;
     }
      */
+
+    @Bean
+    public SimpleJaxWsServiceExporter resourceConfig() {
+        SimpleJaxWsServiceExporter exporter = new SimpleJaxWsServiceExporter();
+        exporter.setBaseAddress("http://localhost:8888/banque/");
+        return exporter;
+
+    }
 }
